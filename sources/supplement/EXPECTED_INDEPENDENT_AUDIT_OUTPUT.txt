@@ -1,0 +1,16 @@
+PASS: independent standard-library exact audit
+CAS dependencies: none
+weights reconstructed: 21
+common denominator digits: 1061
+valuation profiles recomputed: 84
+H degree/hash: 85 91e83aa85d3e09743bd8664736bd4edf764a52b945bd46592b3bf98fc69749c3
+Descartes root intervals/gaps: 63 64
+real roots in (0,25)/(25,49): 41 22
+strict real-rate separation: True
+J degree/hash: 170 71a2327cc73fa1909a5e90933b438db0c547d903cdc6e31021f2e82a0995ce92
+negative Bernstein coefficients of K: 170
+exact final cross-product: PASS
+homogeneous target = 4.104104
+irrationality-exponent target = 5.104104
+STATUS: finite certificate independently reproduced;
+        analytic lemmas remain outside this executable audit.

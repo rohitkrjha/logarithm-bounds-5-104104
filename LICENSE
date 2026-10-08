@@ -1,0 +1,23 @@
+LICENSING SCOPE
+===============
+
+Original contributions: copyright 2026 Rohit Kumar Jha.
+
+The manuscript PDF, LaTeX and bibliography sources, repository documentation,
+and citation metadata are licensed under Creative Commons Attribution 4.0
+International (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+The author's original Python code, verification and integrity-check scripts,
+and build/CI configuration are licensed under the Apache License, Version 2.0.
+A copy is provided at LICENSES/Apache-2.0.txt.
+
+Third-party material retains its existing licenses and attribution notices.
+Bundled upstream LICENSE and NOTICE files remain under sources/anc/lean.
+Dependencies downloaded by Lake retain their respective licenses.
+
+These licenses apply to different components. They are not a choice of either
+license for every file. Existing third-party notices take precedence for the
+contributions they identify. See sources/RIGHTS.txt for the original
+publication package's licensing statement.

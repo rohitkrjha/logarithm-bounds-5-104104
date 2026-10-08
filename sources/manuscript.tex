@@ -1,0 +1,1212 @@
+\documentclass[preprint,12pt]{elsarticle}
+
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{certificate}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\e}{\mathrm e}
+\DeclareMathOperator{\lcm}{lcm}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\abs}[1]{\left|#1\right|}
+
+\journal{Journal of Number Theory}
+
+\hypersetup{
+  pdftitle={Improved irrationality-exponent bounds for log 3 and log base 2 of 3},
+  pdfauthor={Rohit Kumar Jha},
+  pdfsubject={Diophantine approximation and irrationality exponents},
+  pdfkeywords={irrationality exponent, logarithms, computer-assisted proof,
+    exact real-root isolation}
+}
+
+\begin{document}
+\begin{frontmatter}
+
+\title{Improved irrationality-exponent bounds for
+$\boldsymbol{\log 3}$ and $\boldsymbol{\log_2 3}$}
+
+\author{Rohit Kumar Jha}
+
+\begin{abstract}
+We prove that, for all sufficiently large
+$H=\max(|h_1|,|h_2|)$ and all integers $h_0,h_1,h_2$ with
+$(h_1,h_2)\ne(0,0)$,
+\[
+ |h_0+h_1\log2+h_2\log3|>H^{-4.104104}.
+\]
+Consequently,
+$\mu(\log3)\le5.104104$ and
+$\mu(\log3/\log2)\le5.104104$, improving the previously published
+bound $5.116201$.  The proof constructs two positive integer linear forms
+with a common coefficient in $\log(4/3)$ and $\log(9/8)$ from a product of
+twenty-one symmetrized integer polynomials with exact rational weights.
+Coefficient-content identities provide integrality, the Laplace principle
+gives two distinct decay rates, and Cauchy's estimate controls the common
+coefficient.  The finite inequalities are certified in exact rational
+arithmetic by real-root isolation, Bernstein-basis sign certificates, and
+rational logarithm enclosures.  A limit-superior two-form criterion then
+yields the homogeneous estimate and both irrationality-exponent bounds.
+\end{abstract}
+
+\begin{keyword}
+irrationality exponent \sep logarithms \sep integer linear forms \sep
+symmetrized polynomials \sep computer-assisted proof \sep exact real-root isolation
+\MSC[2020] 11J82 \sep 11Y60
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction and statement of the result}
+
+Throughout, $\log$ denotes the natural logarithm.  For an irrational real
+number $\xi$, its irrationality exponent is
+\[
+\begin{aligned}
+ \mu(\xi)=\inf\bigl\{\mu>0:\;&
+ 0<|\xi-p/q|<q^{-\mu}\ \text{has only finitely many solutions}\\
+ & (p,q)\in\mathbb Z\times\mathbb Z_{\ge1}\bigr\}.
+\end{aligned}
+\]
+Dirichlet's theorem gives $\mu(\xi)\ge2$ for every irrational $\xi$.
+Obtaining an explicit upper bound for a particular transcendental constant is
+a different problem: one must construct rational approximations and control,
+simultaneously and effectively, both their denominators and their errors.
+
+The two numbers considered here are connected by the linear form
+\[
+ q\log3-p\log2=\log\frac{3^q}{2^p}.
+\]
+Thus rational approximation to $\log3/\log2=\log_2 3$ measures how closely
+powers of $2$ and $3$ can approach one another on a logarithmic scale.  A
+lower bound for arbitrary integer forms in $1,\log2,\log3$ is stronger than
+separate irrationality-exponent estimates and yields both of them by simple
+specialization.  Such bounds also have applications outside number theory:
+Draper and Saad use the exponent $5.116201$ in a space--entropy lower bound
+for exact sampling from the Bernoulli distribution with parameter $1/3$
+\cite{DraperSaad2026}.
+
+Effective bounds for logarithms of rational numbers are commonly obtained
+from definite integrals whose partial-fraction expansions are rational linear
+forms in logarithms; see Zudilin's survey \cite{Zudilin2004}.  The quality of
+such a construction is governed by three competing quantities: the
+exponential decay of the integral, the growth of the logarithm coefficient,
+and the arithmetic cost of clearing denominators.  Rhin's simultaneous
+construction gave $\mu(\gamma)<8.616$ for every nonzero
+$\gamma\in\mathbb Q\log2+\mathbb Q\log3$ \cite{Rhin1987}.  For $\log3$,
+Salikhov
+obtained
+$\mu(\log3)\le5.125\ldots$ \cite{Salikhov2007}, and Wu and Wang reduced the
+bound to $5.1163051$ using an arithmetic optimization with symmetrized linear
+factors \cite{WuWang2014}.  Bondareva, Luchin, and Salikhov added a quadratic
+symmetrized factor and proved the homogeneous exponent $4.116201$
+\cite{BLS2018}.  In particular, their result gives
+\begin{equation}\label{eq:previous-bound}
+ \mu(\log3)\le5.116201,
+ \qquad
+ \mu(\log3/\log2)\le5.116201.
+\end{equation}
+
+The present construction enlarges the symmetrized factor family to twenty-one
+polynomials of degrees between one and five and uses an exactly defined
+positive rational weight vector.  The local coefficient-content balances are
+retained, while the resulting
+coefficient-growth-to-decay quotient is reduced from $4.116201$ to below
+$4.104104$.  This gives the following strict
+improvement of \eqref{eq:previous-bound}.
+
+\begin{theorem}\label{thm:main}
+Let $h_0,h_1,h_2\in\Z$, with $(h_1,h_2)\ne(0,0)$, and set
+$H=\max(|h_1|,|h_2|)$.  For all sufficiently large $H$,
+\[
+ \abs{h_0+h_1\log2+h_2\log3}>H^{-4.104104}.
+\]
+\end{theorem}
+
+\begin{corollary}\label{cor:irrationality}
+One has
+\[
+ \mu(\log3)\le5.104104,
+ \qquad
+ \mu\!\left(\frac{\log3}{\log2}\right)\le5.104104.
+\]
+\end{corollary}
+
+Here is the structure of the proof.  With
+\[
+ \theta_1=\log(4/3),\qquad \theta_2=\log(9/8),
+\]
+the symmetrized rational function produces two positive integrals over
+$[35,40]$ and $[40,42]$.  After an exact coefficient-content calculation and
+partial fractions, multiplication by a common clearing factor turns them into
+integer linear forms
+\[
+ q_n\theta_1-p_{1,n},\qquad q_n\theta_2-p_{2,n}
+\]
+with the same coefficient $q_n$.  Positivity and the Laplace principle reduce
+their exponential decay to maxima of a single real function on two adjacent
+intervals.  Cauchy's coefficient estimate reduces the growth of $q_n$ to a
+maximum on a complex circle.  Exact root isolation, Bernstein-basis signs,
+and rational logarithm enclosures then prove that the two decay rates are
+distinct and that the quotient of coefficient growth by the smaller decay
+rate is less than
+\[
+ 4.104103101316511697013643<4.104104.
+\]
+Finally, the unimodular relations
+\[
+ \log(4/3)=2\log2-\log3,
+ \qquad
+ \log(9/8)=-3\log2+2\log3
+\]
+transfer the resulting homogeneous estimate to $\log2$ and $\log3$.
+
+Two features require explicit treatment.  First, the Cauchy argument gives a
+limit superior for the common coefficient rather than a full exponential
+limit.  Section~2 therefore proves the precise limit-superior version of
+Hata's two-form criterion \cite[Lemma~2.1]{Hata1993} needed here.  Second,
+the optimization inequalities are too large for useful printed expansion but
+form a finite certificate over $\mathbb Q$.  The main proof states exactly the
+certified polynomial and interval assertions it uses; their exact reproduction
+is described in~\ref{app:certificate}, and the complete certificate accompanies
+the paper as supplementary material.  No floating-point comparison is used in
+a theorem-facing decision.
+
+Section~2 establishes the Diophantine criterion.  Sections~3 and~4 define the
+construction and prove integrality.  Sections~5--7 determine the two decay
+rates and bound the common coefficient, and Section~8 completes the proof.
+The factor data are listed in~\ref{app:factors}, while the finite certificate
+and its reproduction are recorded in~\ref{app:certificate}.
+
+\section{A two-linear-form criterion}
+
+The next lemma is a limit-superior variant of Hata's two-form criterion
+\cite[Lemma~2.1]{Hata1993}.  We include the proof because replacing a limit by
+a limit superior is not merely notational: possible cancellation between the
+two small forms must be controlled uniformly in their integer coefficients.
+
+\begin{lemma}[two-form criterion]\label{lem:two-form}
+Let $\theta_1,\theta_2\in\R$.  Suppose that integers
+$q_n,p_{1,n},p_{2,n}$ satisfy
+\[
+ \eps_{j,n}=q_n\theta_j-p_{j,n}\ne0\qquad(j=1,2)
+\]
+for all sufficiently large $n$, and suppose that
+\begin{equation}\label{eq:two-form-hypotheses}
+ \lim_{n\to\infty}\frac1n\log\abs{\eps_{j,n}}=-\tau_j
+ \quad(j=1,2),
+ \qquad
+ \limsup_{n\to\infty}\frac1n\log\abs{q_n}\le\lambda,
+\end{equation}
+where $\tau_1,\tau_2>0$, $\tau_1\ne\tau_2$, and $\lambda\ge0$.
+Put $\tau=\min(\tau_1,\tau_2)$.  For every $\nu>\lambda/\tau$ there is
+$H_0(\nu)$ such that
+\[
+ \abs{h_0+h_1\theta_1+h_2\theta_2}>H^{-\nu}
+\]
+whenever $h_0,h_1,h_2\in\Z$,
+$H=\max(|h_1|,|h_2|)\ge H_0(\nu)$, and
+$(h_1,h_2)\ne(0,0)$.
+\end{lemma}
+
+\begin{proof}
+Interchanging the two coordinates if necessary, assume
+$0<\tau_1<\tau_2$.  Write $d=\tau_2-\tau_1$ and $T=\tau_2$.
+Fix $\nu>\lambda/\tau_1$.  Choose $c>0$ and then $\eta>0$ so small that
+\begin{gather}
+ dc>2\eta(2+3c),
+ \qquad
+ c\tau_1>\eta(2+2c),                                      \label{eq:eta-conditions}\\
+ \frac{\Gamma}{\tau_1-\eta}<\nu,                           \label{eq:gamma-choice}\\
+ \Gamma=(\lambda+\eta)(1+2c)+2cT+(2+2c)\eta.              \label{eq:gamma}
+\end{gather}
+Such a choice is possible: take $c\downarrow0$ and then
+$\eta=o(c)$; the quotient in \eqref{eq:gamma-choice} tends to
+$\lambda/\tau_1$.
+
+After increasing $N$, the hypotheses give, for $n\ge N$ and $j=1,2$,
+\begin{equation}\label{eq:two-form-exp-bounds}
+ \e^{-(\tau_j+\eta)n}
+ \le\abs{\eps_{j,n}}
+ \le\e^{-(\tau_j-\eta)n},
+ \qquad
+ 0<\abs{q_n}\le\e^{(\lambda+\eta)n}.
+\end{equation}
+The eventual nonvanishing of $q_n$ follows as well: if $q_n=0$ when both
+errors have absolute value less than one, then
+$\eps_{j,n}=-p_{j,n}$ cannot be a nonzero integer.
+
+Fix $(h_0,h_1,h_2)$ and put
+\[
+ S_m=|h_1|\abs{\eps_{1,m}}+|h_2|\abs{\eps_{2,m}},
+ \qquad
+ E_m=h_1\eps_{1,m}+h_2\eps_{2,m}.
+\]
+Let $n\ge N+1$ be the least integer for which $S_n<1/2$.
+This integer exists.  Since one of $|h_1|$ and $|h_2|$ equals $H$,
+\[
+ S_m\ge H\min\bigl(|\eps_{1,m}|,|\eps_{2,m}|\bigr).
+\]
+For every fixed $M$, the nonzero errors at the finitely many indices
+$N+1,\ldots,M$ therefore show that $S_m\ge1/2$ throughout that range once
+$H$ is sufficiently large.  Thus $n\to\infty$ uniformly with $H$; in
+particular, $n>N+1$ and $S_{n-1}\ge1/2$ for sufficiently large $H$.
+By \eqref{eq:two-form-exp-bounds},
+\[
+ \frac12\le S_{n-1}
+ \le2H\e^{-(\tau_1-\eta)(n-1)},
+\]
+so
+\begin{equation}\label{eq:n-height}
+ n\le1+\frac{\log(4H)}{\tau_1-\eta}.
+\end{equation}
+
+Set
+\[
+ k_1=\lceil(1+c)n\rceil,
+ \qquad
+ k_2=\lceil(1+2c)n\rceil.
+\]
+The inequality $S_n<1/2$ and the lower bounds in
+\eqref{eq:two-form-exp-bounds} imply
+\[
+ |h_j|<\frac12\e^{(\tau_j+\eta)n}\qquad(j=1,2).
+\]
+Consequently, for $k\in\{k_1,k_2\}$,
+\[
+ |h_j\eps_{j,k}|
+ \le\frac12
+ \exp\!\bigl(-\tau_j(k-n)+\eta(n+k)\bigr).
+\]
+The second inequality in \eqref{eq:eta-conditions} now shows that
+$S_{k_1},S_{k_2}<1/2$ once $H$, and hence $n$, is sufficiently large.
+
+Suppose first that $h_1h_2\ne0$, and define
+\[
+ R_k=\frac{|h_1\eps_{1,k}|}{|h_2\eps_{2,k}|}.
+\]
+The coefficient quotient cancels from $R_{k_2}/R_{k_1}$.  From
+\eqref{eq:two-form-exp-bounds},
+\[
+ \frac{R_{k_2}}{R_{k_1}}
+ \ge
+ \exp\!\bigl((d-2\eta)k_2-(d+2\eta)k_1\bigr)>4
+\]
+for all sufficiently large $n$, by the first inequality in
+\eqref{eq:eta-conditions}.  Hence at least one
+$k\in\{k_1,k_2\}$ satisfies
+$R_k\notin[1/2,2]$.  Choose such a $k$.  If one of $h_1,h_2$ is zero,
+choose $k=k_1$ instead.
+
+Since $S_{n-1}\ge1/2$, there is an index $j_0\in\{1,2\}$ with
+\[
+ |h_{j_0}\eps_{j_0,n-1}|\ge\frac14.
+\]
+Using first the upper and then the lower error bounds in
+\eqref{eq:two-form-exp-bounds}, and using
+$k\le(1+2c)n+1$, gives
+\begin{align*}
+ |h_{j_0}\eps_{j_0,k}|
+ &\ge\frac14
+ \exp\!\bigl((\tau_{j_0}-\eta)(n-1)
+             -(\tau_{j_0}+\eta)k\bigr)\\
+ &\ge\frac{\e^{-2T}}4
+ \exp\!\bigl(-(2cT+(2+2c)\eta)n\bigr).
+\end{align*}
+If both coefficients are nonzero, the choice
+$R_k\notin[1/2,2]$ implies that one of the two summands in $E_k$ has
+more than twice the absolute value of the other.  If one coefficient is zero,
+there is only one summand.  In either case,
+\begin{equation}\label{eq:E-lower}
+ |E_k|\ge\frac{\e^{-2T}}8
+ \exp\!\bigl(-(2cT+(2+2c)\eta)n\bigr).
+\end{equation}
+
+Put
+\[
+ \Lambda=h_0+h_1\theta_1+h_2\theta_2,
+ \qquad
+ A_k=q_k h_0+p_{1,k}h_1+p_{2,k}h_2\in\Z.
+\]
+Then $q_k\Lambda=A_k+E_k$ and $|E_k|\le S_k<1/2$.
+If $A_k\ne0$, then
+$|\Lambda|>1/(2|q_k|)$.  If $A_k=0$, then
+$|\Lambda|=|E_k|/|q_k|$, and \eqref{eq:E-lower} applies.
+Together with \eqref{eq:two-form-exp-bounds}, both cases give a constant
+$C>0$, independent of the coefficients, such that
+\[
+ |\Lambda|\ge C\e^{-\Gamma n}.
+\]
+Using \eqref{eq:n-height}, this is at least a positive constant times
+$H^{-\Gamma/(\tau_1-\eta)}$.  By \eqref{eq:gamma-choice}, it exceeds
+$H^{-\nu}$ for all sufficiently large $H$.  This proves the lemma.
+\end{proof}
+
+\section{The symmetrized integral construction}
+\label{sec:construction}
+
+The numerator will be invariant under $x\mapsto70-x$.  It is therefore
+convenient to put
+\[
+ t=(x-35)^2.
+\]
+The twenty-one integer polynomials $P_k(t)$ are listed, together with their
+local coefficient profiles, in Table~\ref{tab:factors} of~\ref{app:factors}.
+Their degrees are between one and five.
+
+For $p\in\{2,3,5,7\}$, define
+\begin{equation}\label{eq:profile-definition}
+ \tau_p(P_k)=
+ \min_j v_p\!\left([y^j]P_k((840y-35)^2)\right),
+\end{equation}
+where zero coefficients are omitted from the minimum.  Thus
+$p^{\tau_p(P_k)}$ is the exact $p$-part of the coefficient content relevant
+to the scaling used below.
+
+\subsection{Exact weights}
+
+Set
+\begin{equation}\label{eq:z0}
+ z_0=26\frac{-899+60i}{901},
+ \qquad
+ t_0=(z_0-35)^2
+ =\frac{3012564681-171316080i}{811801}.
+\end{equation}
+In particular, $|z_0|=26$.  Direct exact substitution gives
+$P_k(t_0)\ne0$ for every $k$.  For $1\le k\le21$, put
+\begin{equation}\label{eq:ellk}
+ \ell_k=
+ 2(z_0-35)\frac{P_k'(t_0)}{P_k(t_0)}\in\Q(i).
+\end{equation}
+
+The weights $\alpha_k\in\Q_{>0}$ are defined exactly as follows.  For
+$7\le k\le21$, set $\alpha_k=u_k/10^{12}$, where
+\begin{center}
+\small
+\begin{tabular}{crrrr}
+\toprule
+$k$&7&8&9&10\\
+\midrule
+$u_k$&119873656&878336597&101691070&103130300\\
+\bottomrule
+\end{tabular}
+\qquad
+\begin{tabular}{crrrr}
+\toprule
+$k$&11&12&13&14\\
+\midrule
+$u_k$&219953072&757245952&781996563&232727309\\
+\bottomrule
+\end{tabular}
+
+\medskip
+\begin{tabular}{crrrr}
+\toprule
+$k$&15&16&17&18\\
+\midrule
+$u_k$&630848726&330420926&232427174&314945936\\
+\bottomrule
+\end{tabular}
+\qquad
+\begin{tabular}{crrr}
+\toprule
+$k$&19&20&21\\
+\midrule
+$u_k$&103903210&14385085&9664407\\
+\bottomrule
+\end{tabular}
+\end{center}
+The first six weights are the unique rational solution of
+\begin{align}
+ \sum_{k=1}^{21}\alpha_k\deg P_k&=\frac32,
+ \label{eq:degree-balance}\\
+ \sum_{k=1}^{21}\alpha_k\tau_7(P_k)&=2,
+ &\sum_{k=1}^{21}\alpha_k\tau_5(P_k)&=2,
+ \label{eq:profile75}\\
+ \sum_{k=1}^{21}\alpha_k\tau_3(P_k)&=1,
+ \label{eq:profile3}\\
+ \sum_{k=1}^{21}\alpha_k\ell_k
+ &=\frac1{z_0}-\frac1{70-z_0}.
+ \label{eq:complex-weight-equation}
+\end{align}
+The last line means equality of real and imaginary parts, so the system has
+six rational equations.  Exact Gaussian elimination shows that the resulting
+$6\times6$ coefficient matrix is nonsingular and that all six weights are
+positive.
+For orientation,
+\begin{center}
+\small
+\begin{tabular}{r@{\quad}l r@{\quad}l r@{\quad}l}
+\toprule
+$k$&$\alpha_k$&$k$&$\alpha_k$&$k$&$\alpha_k$\\
+\midrule
+1 & 0.492767795602391 & 8 & 0.000878336597000 & 15 & 0.000630848726000 \\
+2 & 0.497597698986041 & 9 & 0.000101691070000 & 16 & 0.000330420926000 \\
+3 & 0.484860590979781 & 10 & 0.000103130300000 & 17 & 0.000232427174000 \\
+4 & 0.000043741872954 & 11 & 0.000219953072000 & 18 & 0.000314945936000 \\
+5 & 0.000129471059917 & 12 & 0.000757245952000 & 19 & 0.000103903210000 \\
+6 & 0.000176164327825 & 13 & 0.000781996563000 & 20 & 0.000014385085000 \\
+7 & 0.000119873656000 & 14 & 0.000232727309000 & 21 & 0.000009664407000 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Let $D$ be the least common multiple of the denominators of the
+$\alpha_k$, and write
+\[
+ W_k=D\alpha_k\in\Z_{>0}.
+\]
+The integer $D$ has $1061$ decimal digits.  Its exact value and all $W_k$
+are part of the supplementary certificate.  We let $n$ tend to infinity
+through the positive multiples of $2D$.  Then every $\alpha_k n$ is an even
+integer.
+
+The numerical search that led to these parameters is not part of the proof.
+Its provenance and the subsequent exact rationalization are recorded
+in~\ref{app:certificate} and in the supplementary material.  No
+optimality is claimed for the factor family.
+
+\section{Arithmetic and integer linear forms}
+
+Put
+\begin{equation}\label{eq:An-Rn}
+ A_n(x)=\prod_{k=1}^{21}
+ P_k((x-35)^2)^{\alpha_k n},
+ \qquad
+ R_n(x)=
+ \frac{A_n(x)}{x^{n+1}(70-x)^{n+1}}.
+\end{equation}
+The degree balance gives $\deg_x A_n=3n$.  The numerator has integer
+coefficients, and all of its factor exponents are even.  Consequently
+$R_n$ is nonnegative on the two real intervals used below.
+
+\subsection{The scaled numerator}
+
+Set
+\begin{equation}\label{eq:a-clearing}
+ s_2=\sum_{k=1}^{21}\alpha_k\tau_2(P_k),
+ \qquad
+ a=4-s_2.
+\end{equation}
+The exact weights give
+\begin{equation}\label{eq:a-value}
+ a=0.43339168265643340846553249867665\ldots>0.
+\end{equation}
+Because $n$ is a multiple of $2D$, $an$ is a nonnegative integer.
+
+\begin{lemma}[integer scaled numerator]\label{lem:scaled-integer}
+For every admissible $n$,
+\begin{equation}\label{eq:Bn}
+ B_n(y)=\frac{2^{an}A_n(840y)}{58800^n}
+\end{equation}
+belongs to $\Z[y]$.
+\end{lemma}
+
+\begin{proof}
+For each $k$, definition \eqref{eq:profile-definition} says that every
+coefficient of $P_k((840y-35)^2)$ is divisible by
+\[
+ 2^{\tau_2(P_k)}3^{\tau_3(P_k)}
+ 5^{\tau_5(P_k)}7^{\tau_7(P_k)}.
+\]
+After raising the factors to the integer powers $\alpha_k n$ and multiplying,
+\eqref{eq:profile75}--\eqref{eq:profile3} supply respectively
+$7^{2n}$, $5^{2n}$, and $3^n$.  Definition \eqref{eq:a-clearing} supplies
+$2^{4n}$ after multiplication by $2^{an}$.  Since
+\[
+ 58800=2^4\cdot3\cdot5^2\cdot7^2,
+\]
+the quotient in \eqref{eq:Bn} has integer coefficients.
+\end{proof}
+
+\subsection{Partial fractions and denominator clearing}
+
+Symmetry under $x\mapsto70-x$ gives
+\begin{equation}\label{eq:partial-fraction}
+ R_n(x)=Q_{n-2}(x)+
+ \sum_{i=1}^{n+1}a_{i,n}
+ \left(\frac1{x^i}+\frac1{(70-x)^i}\right),
+\end{equation}
+where $Q_{n-2}\in\Z[x]$.  Indeed, the polynomial denominator in
+\eqref{eq:An-Rn} has leading coefficient $\pm1$, so polynomial division
+preserves integrality, and symmetry identifies the two principal parts.
+
+\begin{lemma}[partial-fraction denominators]\label{lem:ai}
+For $1\le i\le n+1$ there is an integer $M_{i,n}$ such that
+\begin{equation}\label{eq:ai}
+ a_{i,n}=\frac{2^{-an}840^{i-1}}{70}M_{i,n}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+At $x=0$,
+\[
+ a_{i,n}=[x^{n+1-i}]
+ \frac{A_n(x)}{(70-x)^{n+1}}.
+\]
+Put $j=n+1-i$ and substitute $x=840y$.  By
+Lemma~\ref{lem:scaled-integer},
+\[
+\begin{aligned}
+ a_{i,n}
+ &=840^{-j}\frac{2^{-an}58800^n}{70^{n+1}}
+ [y^j]B_n(y)(1-12y)^{-n-1}\\
+ &=\frac{2^{-an}840^{n-j}}{70}
+ [y^j]B_n(y)(1-12y)^{-n-1}.
+\end{aligned}
+\]
+Now $n-j=i-1$ and $(1-12y)^{-n-1}\in\Z[[y]]$.
+\end{proof}
+
+Let
+\begin{equation}\label{eq:Cn}
+ \Delta_n=\lcm(1,2,\ldots,n),
+ \qquad
+ C_n=70\,2^{an}\Delta_n,
+\end{equation}
+and define
+\begin{equation}\label{eq:integrals}
+ I_{1,n}=\int_{35}^{40}R_n(x)\dd x,
+ \qquad
+ I_{2,n}=\int_{40}^{42}R_n(x)\dd x.
+\end{equation}
+
+\begin{proposition}[two positive integer forms]\label{prop:forms}
+There are integers $q_n,p_{1,n},p_{2,n}$ such that
+\begin{align}
+ C_n I_{1,n}&=q_n\log\frac43-p_{1,n},\label{eq:form1}\\
+ C_n I_{2,n}&=q_n\log\frac98-p_{2,n},\label{eq:form2}
+\end{align}
+where the common coefficient is $q_n=C_n a_{1,n}\in\Z$.  Both left-hand
+sides are strictly positive.
+\end{proposition}
+
+\begin{proof}
+For integers $0<u<v<70$,
+\begin{align}
+\int_u^v\left(\frac1x+\frac1{70-x}\right)\dd x
+ &=\log\frac{v(70-u)}{u(70-v)},\label{eq:elementary-log}\\
+\int_u^v\left(\frac1{x^i}+\frac1{(70-x)^i}\right)\dd x
+ &=\frac{u^{1-i}-v^{1-i}+(70-v)^{1-i}-(70-u)^{1-i}}{i-1}
+ \label{eq:elementary-rational}
+\end{align}
+for $i\ge2$.  The logarithm in \eqref{eq:elementary-log} is
+$\log(4/3)$ for $(u,v)=(35,40)$ and $\log(9/8)$ for
+$(u,v)=(40,42)$.
+
+Every endpoint in \eqref{eq:elementary-rational} belongs to
+$\{28,30,35,40,42\}$ and divides $840$.  By \eqref{eq:ai},
+multiplication by $70\,2^{an}$ clears its $(i-1)$st power, while
+$\Delta_n$ clears the factor $i-1$.  The polynomial part has integer
+coefficients and degree $n-2$, so $\Delta_n$ also clears all denominators in
+its integral between integer endpoints.  This proves
+\eqref{eq:form1}--\eqref{eq:form2}.  Positivity follows because $R_n$ is
+nonnegative and not identically zero on either interval.
+\end{proof}
+
+Since $\log\Delta_n=\psi(n)$, the prime number theorem in the form
+$\psi(n)\sim n$ gives
+\[
+ \lim_{n\to\infty}\frac1n\log\Delta_n=1
+\]
+\cite[Ch.~6]{MontgomeryVaughan2007}.  Hence, along the admissible values of
+$n$,
+\begin{equation}\label{eq:cdef}
+ \lim_{n\to\infty}\frac1n\log C_n
+ =c:=1+a\log2.
+\end{equation}
+
+\section{Exact logarithm enclosures}\label{sec:log-enclosure}
+
+\begin{lemma}\label{lem:log-enclosure}
+For $0\le z<1$ and $N\ge1$,
+\[
+ 2\sum_{j=0}^{N-1}\frac{z^{2j+1}}{2j+1}
+ \le\log\frac{1+z}{1-z}
+ \le
+ 2\sum_{j=0}^{N-1}\frac{z^{2j+1}}{2j+1}
+ +\frac{2z^{2N+1}}{(2N+1)(1-z^2)}.
+\]
+Consequently every logarithm of a positive rational number can be enclosed
+between explicit rational numbers.
+\end{lemma}
+
+\begin{proof}
+Use the positive series
+$\operatorname{atanh}z=\sum_{j\ge0}z^{2j+1}/(2j+1)$ and bound every omitted
+denominator below by $2N+1$.  For a positive rational $y$, choose the exact
+integer $k$ with $2^k\le y<2^{k+1}$ and write
+\[
+ \log y=k\log2+
+ \log\frac{1+u}{1-u},
+ \qquad
+ u=\frac{y/2^k-1}{y/2^k+1},\qquad 0\le u<\frac13.
+\]
+The same series with $z=1/3$ encloses
+$\log2=\log((1+z)/(1-z))$, so every term in the displayed decomposition has
+explicit rational lower and upper bounds.
+\end{proof}
+
+\section{The two real decay rates}
+
+For $0\le t\le49$, define
+\begin{equation}\label{eq:g}
+ g(t)=\frac{\prod_{k=1}^{21}\abs{P_k(t)}^{\alpha_k}}{1225-t}.
+\end{equation}
+This is a continuous nonnegative function.  On the two integration
+intervals,
+\begin{equation}\label{eq:Rn-g}
+ R_n(x)=
+ \frac{g((x-35)^2)^n}{1225-(x-35)^2}.
+\end{equation}
+Put
+\begin{equation}\label{eq:M12}
+ M_1=\log\max_{0\le t\le25}g(t),
+ \qquad
+ M_2=\log\max_{25\le t\le49}g(t).
+\end{equation}
+
+\begin{lemma}[elementary Laplace principle]\label{lem:laplace}
+Let $f$ be continuous and nonnegative, but not identically zero, on a compact
+interval $K$, and let $w$ be continuous and strictly positive there.  Then
+\[
+ \lim_{n\to\infty}\frac1n
+ \log\int_K f(x)^n w(x)\dd x
+ =\log\max_K f.
+\]
+\end{lemma}
+
+\begin{proof}
+The upper bound follows from
+$\int_K f^n w\le(\max_K f)^n\int_K w$.  For the lower bound, choose a point at
+which $f$ attains its positive maximum.  For every $\delta>0$, the function
+$f$ is at least $\max_K f-\delta$ on a one-sided or two-sided neighborhood
+of that point, and $w$ has a positive lower bound there.  Let $n\to\infty$
+and then $\delta\downarrow0$.
+\end{proof}
+
+Away from the zeros of the $P_k$,
+\[
+ \frac{\dd}{\dd t}\log g(t)
+ =\sum_{k=1}^{21}\alpha_k\frac{P_k'(t)}{P_k(t)}
+ +\frac1{1225-t}.
+\]
+Let $P(t)=\prod_{k=1}^{21}P_k(t)$, and let $H(t)$ be the primitive part,
+with positive content removed, of
+\begin{equation}\label{eq:H}
+ (1225-t)\sum_{k=1}^{21}W_k P_k'(t)\frac{P(t)}{P_k(t)}
+ +DP(t).
+\end{equation}
+It is an integer polynomial of degree $85$.
+
+\begin{certificate}[real critical points]\label{cert:real}
+The polynomial $H$ is squarefree and coprime to $P$.  It has exactly $63$
+roots in $[0,49]$: $41$ in $(0,25)$ and $22$ in $(25,49)$.  Exact rational
+root isolation and outward rational logarithm bounds give
+\begin{align}
+ -2.722957495668415052959634
+ &<M_1<
+ -2.722957495668409711051756,
+ \label{eq:M1-bounds}\\
+ -2.722977562389619550059089
+ &<M_2<
+ -2.722977562389619502813003.
+ \label{eq:M2-bounds}
+\end{align}
+In particular,
+\begin{equation}\label{eq:M-separation}
+ M_1-M_2>0.000020066721204449853370212.
+\end{equation}
+\end{certificate}
+
+\begin{proof}
+This is a finite calculation over $\Q$, recorded in~\ref{app:certificate}.
+After clearing content, exact Euclidean
+algorithms prove that $H$ is squarefree and coprime to $P$, and the
+Vincent--Akritas--Strzebo\'nski continued-fraction method isolates every real
+root.
+The endpoints $0,25,49$ and every other zero of a factor have $g(t)=0$;
+therefore every positive maximum occurs at one of the isolated roots of
+$H$.  Each factor is bounded on each rational isolating interval by exact
+Horner interval arithmetic.  The logarithms are enclosed using
+Lemma~\ref{lem:log-enclosure}.  Comparing the resulting rational intervals
+gives \eqref{eq:M1-bounds}--\eqref{eq:M-separation}.  All $63$ isolating
+intervals and their exact rational value bounds are included in the
+supplementary certificate.
+\end{proof}
+
+By Lemma~\ref{lem:laplace}, Proposition~\ref{prop:forms}, and
+\eqref{eq:cdef},
+\begin{equation}\label{eq:error-rates}
+ \lim_{\substack{n\to\infty\\2D\mid n}}
+ \frac1n\log(C_n I_{j,n})
+ =c+M_j=-\tau_j
+ \qquad(j=1,2).
+\end{equation}
+Lemma~\ref{cert:real} shows that $\tau_2>\tau_1$, and the numerical
+bounds in Section~\ref{sec:completion} show that both are positive.  Since
+the two errors are positive, they are nonzero for every admissible $n$.
+
+\section{Growth bound for the common coefficient}
+
+Put
+\[
+ Q_k(z)=P_k((z-35)^2).
+\]
+The coefficient of the logarithms in Proposition~\ref{prop:forms} is
+controlled by
+\begin{equation}\label{eq:a1-coefficient}
+ a_{1,n}=[z^n]\frac{A_n(z)}{(70-z)^{n+1}}.
+\end{equation}
+We apply Cauchy's estimate on the circle $|z|=26$.
+
+Write $z=26\e^{i\theta}$ and $u=\cos\theta$.  Define the integer
+polynomials
+\begin{equation}\label{eq:circle-factors}
+ A_k^\circ(u)=|Q_k(26\e^{i\theta})|^2
+\end{equation}
+and
+\begin{equation}\label{eq:B-circle}
+ B^\circ(u)=|26\e^{i\theta}(70-26\e^{i\theta})|^2
+ =676(5576-3640u).
+\end{equation}
+Set
+\begin{equation}\label{eq:F-circle}
+ F(u)=\frac12\sum_{k=1}^{21}\alpha_k\log A_k^\circ(u)
+ -\frac12\log B^\circ(u),
+ \qquad -1\le u\le1,
+\end{equation}
+and let $L=\max_{[-1,1]}F$.
+
+Let $\mathcal A(u)=\prod_k A_k^\circ(u)$.  The primitive integer numerator
+of $2D F'(u)$ is the primitive part, with positive content removed, of
+\begin{equation}\label{eq:J}
+ B^\circ(u)\sum_{k=1}^{21}
+ W_k(A_k^\circ)'(u)\frac{\mathcal A(u)}{A_k^\circ(u)}
+ -D(B^\circ)'(u)\mathcal A(u).
+\end{equation}
+Denote it by $J(u)$.
+
+\begin{certificate}[circle maximum]\label{cert:circle}
+Every $A_k^\circ$ is strictly positive on $[-1,1]$.  The polynomial $J$
+has degree $170$ and factors as
+\begin{equation}\label{eq:J-factor}
+ J(u)=(901u+899)K(u),
+\end{equation}
+where $K$ has degree $169$ and is strictly negative on $[-1,1]$.
+Consequently $F$ has its unique maximum at
+\[
+ u_0=-\frac{899}{901}.
+\]
+Exact outward logarithm bounds at $u_0$ give
+\begin{equation}\label{eq:L-bounds}
+ 4.537901075598406403746477
+ <L<
+ 4.537901075598406404986681.
+\end{equation}
+\end{certificate}
+
+\begin{proof}
+Map $u=2v-1$ from $[-1,1]$ to $[0,1]$.  If
+$p(v)=\sum_{j=0}^n a_j v^j$, its degree-$n$ Bernstein coefficients are
+\begin{equation}\label{eq:bernstein}
+ b_k=\sum_{j=0}^k a_j
+ \frac{\binom{k}{j}}{\binom{n}{j}}
+ \qquad(0\le k\le n).
+\end{equation}
+Exact conversion by \eqref{eq:bernstein} gives positive Bernstein
+coefficients for every $A_k^\circ(2v-1)$ and negative Bernstein coefficients
+for $K(2v-1)$.  Hence every circle factor is positive on $[-1,1]$, and the
+sign of $J$ is positive to the left of $u_0$ and negative to its right.
+The same calculation gives $J'(u_0)<0$.  The complete coefficient and sign
+certificate is described in~\ref{app:certificate}.  Finally,
+Lemma~\ref{lem:log-enclosure} gives \eqref{eq:L-bounds}.
+\end{proof}
+
+\begin{proposition}[Cauchy growth bound]\label{prop:cauchy}
+Along the admissible values of $n$,
+\begin{equation}\label{eq:q-limsup}
+ \limsup_{\substack{n\to\infty\\2D\mid n}}
+ \frac1n\log|q_n|
+ \le c+L.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+From \eqref{eq:a1-coefficient} and Cauchy's coefficient estimate,
+\[
+\begin{aligned}
+ |a_{1,n}|
+ &\le
+ \max_{|z|=26}
+ \frac{|A_n(z)|}{26^n|70-z|^{n+1}}\\
+ &\le\frac1{44}
+ \left(
+ \max_{|z|=26}
+ \frac{\prod_k|Q_k(z)|^{\alpha_k}}{|z(70-z)|}
+ \right)^n
+ =\frac1{44}\e^{nL}.
+\end{aligned}
+\]
+Since $q_n=C_n a_{1,n}$, equation \eqref{eq:cdef} gives
+\eqref{eq:q-limsup}.  If a coefficient vanishes, the corresponding
+logarithm is interpreted as $-\infty$.  By \eqref{eq:error-rates}, both
+positive errors lie in $(0,1)$ for every sufficiently large admissible $n$.
+If $q_n=0$ at such an index, \eqref{eq:form1} would make the first error a
+nonzero integer, a contradiction.  Thus $q_n$ is eventually nonzero.
+\end{proof}
+
+\section{Certified constants and completion}\label{sec:completion}
+
+The exact rational logarithm enclosure gives
+\begin{equation}\label{eq:c-bounds}
+ 1.300404222911437365598758
+ <c<
+ 1.300404222911437366032151.
+\end{equation}
+Combining the outward upper bounds for $c$, $M_1$, and $L$ gives
+\begin{align}
+ \tau_1=-(c+M_1)
+ &>1.422553272756972345019606,
+ \label{eq:tau-final}\\
+ \lambda:=c+L
+ &<5.838305298509843771018831.
+ \label{eq:lambda-final}
+\end{align}
+The rational endpoints in these enclosures satisfy, by exact integer
+cross-multiplication,
+\begin{equation}\label{eq:ratio-final}
+ \frac{\lambda}{\tau_1}
+ <4.104103101316511697013643
+ <\frac{513013}{125000}
+ =4.104104.
+\end{equation}
+
+For $m\ge1$, reindex the construction by $n_m=2Dm$.  Equations
+\eqref{eq:error-rates} and \eqref{eq:q-limsup} then satisfy the hypotheses of
+Lemma~\ref{lem:two-form}, with every exponential constant multiplied by
+$2D$ and hence with the quotient in \eqref{eq:ratio-final} unchanged.
+Apply the lemma to
+\[
+ \theta_1=\log\frac43=2\log2-\log3,
+ \qquad
+ \theta_2=\log\frac98=-3\log2+2\log3.
+\]
+
+The coefficient transformation is unimodular.  Explicitly, for arbitrary
+$h_1,h_2\in\Z$, put
+\begin{equation}\label{eq:unimodular}
+ u=2h_1+3h_2,
+ \qquad
+ v=h_1+2h_2.
+\end{equation}
+Then
+\[
+ u\theta_1+v\theta_2=h_1\log2+h_2\log3.
+\]
+Moreover, if $H=\max(|h_1|,|h_2|)$ and
+$H'=\max(|u|,|v|)$, then $H/5\le H'\le5H$.
+Choose $\nu$ strictly between the first and second quantities in
+\eqref{eq:ratio-final}.  Lemma~\ref{lem:two-form} gives
+\[
+ \abs{h_0+h_1\log2+h_2\log3}
+ >(H')^{-\nu}\ge(5H)^{-\nu}.
+\]
+For all sufficiently large $H$, the last expression exceeds
+$H^{-4.104104}$.  This proves Theorem~\ref{thm:main}.
+
+\begin{proof}[Proof of Corollary~\ref{cor:irrationality}]
+Taking $(h_1,h_2)=(0,q)$ and $h_0=-p$ in
+Theorem~\ref{thm:main} gives
+\[
+ \abs{\log3-\frac pq}>q^{-5.104104}
+\]
+for all sufficiently large $q$ and every $p\in\Z$.
+
+For $\xi=\log3/\log2$, take $(h_1,h_2)=(-p,q)$.  Whenever
+$|\xi-p/q|<1$, one has
+$\max(|p|,q)\le(1+|\xi|)q$.  The theorem therefore gives a positive
+constant $C_\xi$ such that
+\[
+ \abs{\xi-\frac pq}
+ =\frac{\abs{q\log3-p\log2}}{q\log2}
+ >C_\xi q^{-5.104104}
+\]
+for all sufficiently large $q$.  For every $\delta>0$, the right-hand side
+exceeds $q^{-(5.104104+\delta)}$ once $q$ is sufficiently large.  Thus the
+defining approximation inequality has only finitely many solutions for every
+exponent greater than $5.104104$.  Together with the first lower bound, this
+proves both assertions.
+\end{proof}
+
+\appendix
+
+\makeatletter
+\@addtoreset{table}{section}
+\makeatother
+\renewcommand{\thetable}{\Alph{section}.\arabic{table}}
+
+\section{Factors and valuation profiles}\label{app:factors}
+
+In the third column, coefficients are ordered from the leading coefficient
+to the constant term.  The historical ID records the column in the
+exploratory factor pool.
+
+\scriptsize
+\begin{longtable}{r r >{\raggedright\arraybackslash\ttfamily}p{0.55\textwidth} rrrr}
+\caption{The twenty-one symmetrized factors and their local coefficient
+profiles.}\label{tab:factors}\\
+\toprule
+$k$&ID&\normalfont coefficients, high to low&$\tau_7$&$\tau_5$&$\tau_3$&$\tau_2$\\
+\midrule
+\endfirsthead
+\multicolumn{7}{c}{\tablename\ \thetable\ (continued)}\\
+\toprule
+$k$&ID&\normalfont coefficients, high to low&$\tau_7$&$\tau_5$&$\tau_3$&$\tau_2$\\
+\midrule
+\endhead
+1&0&[1, -49]&2&0&1&3\\
+2&1&[1, -25]&0&2&1&4\\
+3&2&[1, 0]&2&2&0&0\\
+4&43&[38553, -19202708, 1088493350, -17941472500, 90075015625]&8&6&2&16\\
+5&99&[463, -2770460, 172374650, -2731137500, 12867859375]&7&6&2&15\\
+6&105&[1579, 4041716, -242861150, 3823592500, -18015003125]&8&5&1&16\\
+7&124&[11, -38729, 834225, -4501875]&4&4&1&12\\
+8&144&[16201, -64316693, 6078999290, -194217490250, 2344523978125, -9457876640625]&9&7&2&20\\
+9&148&[3723, -14434700, 867361250, -13655687500, 64339296875]&7&7&0&16\\
+10&159&[154073, -706525365, 69673778650, -2292537826250, 27833179828125, -110341894140625]&10&8&2&20\\
+11&161&[13627, -789705, 11790625, -52521875]&5&5&1&12\\
+12&163&[4259, -19924359, 1880315710, -60526208750, 754056559375, -3152625546875]&9&7&1&20\\
+13&178&[8831, -33425731, 2301541270, -49661683750, 434933646875, -1351125234375]&8&7&2&20\\
+14&189&[11881, -45475525, 3256944250, -74061846250, 685673078125, -2251875390625]&8&8&2&19\\
+15&190&[31809, -138944253, 9336110826, -192597295450, 1574511273125, -4413675765625]&10&6&2&20\\
+16&195&[85343, -320906467, 22689947350, -517088363750, 4799711546875, -15763127734375]&9&8&3&19\\
+17&198&[21629, -86995629, 6252170386, -142667059850, 1329507230625, -4413675765625]&10&6&2&18\\
+18&199&[359787, -1983981727, 196332531150, -6510548598750, 80617138984375, -331025682421875]&10&8&3&20\\
+19&201&[14179, -60400263, 4236862910, -96560416750, 918765159375, -3152625546875]&9&7&3&20\\
+20&202&[43951, -94114083, 9117300150, -301286483750, 3770282796875, -15763127734375]&9&8&2&19\\
+21&208&[162521, -717601717, 70580396250, -2311361666250, 27833179828125, -110341894140625]&10&8&2&19\\
+\bottomrule
+\end{longtable}
+\normalsize
+
+\section{Computational certificate and reproducibility}
+\label{app:certificate}
+
+This appendix records the implementation of the finite calculations used in
+Lemmas~\ref{cert:real} and~\ref{cert:circle} and in the
+final comparison \eqref{eq:ratio-final}.  The analytic and arithmetic
+reductions are proved in the main text; the role of the software is limited to
+polynomial identities, real-root counts, rational interval inequalities, and
+exact sign decisions.
+
+\subsection{Origin and exact rationalization of the parameters}
+
+The active factor support arose from a discretized optimization of a
+semi-infinite linear program.  The surviving exploratory output had the
+nonrigorous design value $5.1040765815\ldots$.  The submitted construction was
+then rationalized by imposing the circle point \eqref{eq:z0}, prescribing a
+separation margin between the two real maxima, fixing the last fifteen
+weights with denominator $10^{12}$, and solving
+\eqref{eq:degree-balance}--\eqref{eq:complex-weight-equation} exactly for the
+first six weights.  The exploratory value is not used in the proof.  The
+supplement contains the surviving design output and a numerical-to-exact
+history so that this distinction can be audited.
+
+\subsection{Primary exact certificate}
+
+The program \texttt{verify\_log3\_bound\_5\_104104.py} uses Python integer
+and rational arithmetic together with SymPy's exact polynomial algorithms
+\cite{SymPy2017}.  Starting from the factor coefficients and the fifteen free
+weights displayed in Section~\ref{sec:construction}, it
+\begin{enumerate}[leftmargin=2em]
+\item reconstructs the first six weights and checks their positivity and all
+      six defining equations;
+\item recomputes the twenty-one local coefficient profiles and all degree and
+      content balances;
+\item constructs the degree-$85$ polynomial $H$, proves squarefreeness and
+      coprimality, and isolates its $63$ roots in $[0,49]$;
+\item encloses every real critical value and proves the strict separation of
+      $M_1$ and $M_2$;
+\item constructs the degree-$170$ circle polynomial $J$, verifies
+      $J=(901u+899)K$, and proves the required Bernstein signs;
+\item encloses $L$, $c$, $\lambda$, and $\tau_1$ by rational intervals; and
+\item proves \eqref{eq:ratio-final} by integer cross-multiplication.
+\end{enumerate}
+There is no floating-point branch or comparison, and the program refuses to
+run when Python assertions are disabled.  Decimal output is diagnostic only.
+The exact denominator, weight numerators, root intervals, value bounds, and
+polynomial data are exported to
+\texttt{certificate\_log3\_5\_104104.json}.
+
+For identification of the reconstructed polynomials, the SHA-256 hashes of
+their primitive high-to-low coefficient lists are
+\begin{center}
+\ttfamily\small
+H: 91e83aa85d3e09743bd8664736bd4edf764a52b945bd46592b3bf98fc69749c3,\\
+J: 71a2327cc73fa1909a5e90933b438db0c547d903cdc6e31021f2e82a0995ce92.
+\end{center}
+
+Every logarithm comparison implements Lemma~\ref{lem:log-enclosure}.  A
+positive rational number is first reduced, by an exact power of two, to a
+number $y$ satisfying $1\le y<2$;
+the program then takes $24$ positive-series terms, appends the explicit
+rational tail, and rounds outward to denominator $10^{18}$.
+
+\subsection{Independent exact reproduction}
+
+The second program, \texttt{independent\_exact\_audit.py}, uses only Python's
+standard library and imports neither the primary verifier nor a
+computer-algebra system.  It separately implements rational Gaussian
+elimination, integer-polynomial arithmetic, logarithm enclosures, Bernstein
+conversion, and the final comparison.  It reconstructs the coefficient lists
+and hashes of $H$ and $J$.  Exact Descartes transformations prove that each of
+the $63$ exported intervals contains one root of $H$ and that all $64$
+complementary gaps in $(0,49)$ contain none.  The JSON certificate is common
+input, but every theorem-facing entry used by this program is checked rather
+than assumed.
+
+As a further cross-check, \texttt{audit\_flint\_crosscheck.py} passes the
+reconstructed integer polynomials to FLINT/Arb \cite{Johansson2017}.
+Rigorous complex-ball isolation independently confirms the $41/22$ split of
+the roots of $H$, one root in every exported interval, and the absence of
+roots of $K$ and of the circle factors in $(-1,1)$.  This third computation is
+logically redundant but guards against an implementation-specific
+root-isolation error.
+
+\subsection{Reproduction}
+
+The supplement's README gives the complete commands and pinned dependencies.
+The primary run writes a fresh JSON certificate for bytewise comparison with
+the submitted one; the manuscript-consistency check and the two independent
+audits are then run separately.  The archive supplies reference outputs and a
+SHA-256 manifest for every file.
+
+\section*{Data and code availability}
+
+The manuscript source is supplied with the submission.  The exact verifier,
+CAS-free independent reproduction, JSON certificate, expected outputs, file
+hashes, numerical-to-exact history, exploratory transcript, and independent
+FLINT/Arb root audit accompany this article as supplementary material.  The
+primary verifier needs no network access and makes no floating-point proof
+decision.
+
+\section*{Funding}
+
+This research did not receive any specific grant from funding agencies in the
+public, commercial, or not-for-profit sectors.
+
+\section*{Declaration of competing interest}
+
+The author declares that he has no known competing financial interests or
+personal relationships that could have appeared to influence the work
+reported in this paper.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the
+manuscript preparation process}
+
+During the preparation of this work, the author used ChatGPT and Codex
+(OpenAI) for computational exploration, generation and checking of proof
+components and software, and drafting and editing the manuscript.  After
+using these tools, the author reviewed and edited the resulting mathematical
+arguments, computations, code, and text as needed and takes full
+responsibility for the content of the article.
+
+\begin{thebibliography}{99}
+
+\bibitem{DraperSaad2026}
+T.~L. Draper and F.~A. Saad,
+\emph{Space-entropy lower bounds for random sampling},
+arXiv:2607.14503 (2026).
+\href{https://arxiv.org/abs/2607.14503}{arXiv:2607.14503}.
+
+\bibitem{Zudilin2004}
+W.~Zudilin,
+\emph{An essay on irrationality measures of $\pi$ and other logarithms},
+Chebyshevskii Sbornik \textbf{5} (2004), no.~2, 49--65.
+\href{https://arxiv.org/abs/math/0404523}{arXiv:math/0404523}.
+
+\bibitem{Rhin1987}
+G.~Rhin,
+\emph{Approximants de Pad\'e et mesures effectives d'irrationalit\'e},
+in: C.~Goldstein (Ed.), S\'eminaire de Th\'eorie des Nombres,
+Paris 1985--86, Progress in Mathematics, vol.~71,
+Birkh\"auser, Boston, 1987, pp.~155--164.
+\href{https://doi.org/10.1007/978-1-4757-4267-1_11}
+{doi:10.1007/978-1-4757-4267-1\_11}.
+
+\bibitem{Salikhov2007}
+V.~Kh. Salikhov,
+\emph{On the irrationality measure of $\log3$},
+Doklady Mathematics \textbf{76} (2007), no.~3, 955--957.
+\href{https://doi.org/10.1134/S1064562407060361}
+{doi:10.1134/S1064562407060361}.
+
+\bibitem{WuWang2014}
+Q.~Wu and L.~Wang,
+\emph{On the irrationality measure of $\log3$},
+Journal of Number Theory \textbf{142} (2014), 264--273.
+\href{https://doi.org/10.1016/j.jnt.2014.03.007}
+{doi:10.1016/j.jnt.2014.03.007}.
+
+\bibitem{BLS2018}
+I.~V. Bondareva, M.~Yu. Luchin, and V.~Kh. Salikhov,
+\emph{Symmetrized polynomials in a problem of estimating the irrationality
+measure of the number $\log3$},
+Chebyshevskii Sbornik \textbf{19} (2018), no.~1, 15--25.
+\href{https://doi.org/10.22405/2226-8383-2018-19-1-15-25}
+{doi:10.22405/2226-8383-2018-19-1-15-25}.
+
+\bibitem{Hata1993}
+M.~Hata,
+\emph{Rational approximations to $\pi$ and some other numbers},
+Acta Arithmetica \textbf{63} (1993), no.~4, 335--349.
+\href{https://doi.org/10.4064/aa-63-4-335-349}
+{doi:10.4064/aa-63-4-335-349}.
+
+\bibitem{MontgomeryVaughan2007}
+H.~L. Montgomery and R.~C. Vaughan,
+\emph{Multiplicative Number Theory I: Classical Theory},
+Cambridge Studies in Advanced Mathematics, vol.~97,
+Cambridge University Press, Cambridge, 2007.
+
+\bibitem{SymPy2017}
+A.~Meurer, C.~P. Smith, M.~Paprocki, O.~\v{C}ert\'{\i}k,
+S.~B. Kirpichev, M.~Rocklin, A.~Kumar, S.~Ivanov, J.~K. Moore,
+S.~Singh, T.~Rathnayake, S.~Vig, B.~E. Granger, R.~P. Muller,
+F.~Bonazzi, H.~Gupta, S.~Vats, F.~Johansson, F.~Pedregosa,
+M.~J. Curry, A.~R. Terrel, \v{S}. Rou\v{c}ka, A.~Saboo,
+I.~Fernando, S.~Kulal, R.~Cimrman, and A.~Scopatz,
+\emph{SymPy: symbolic computing in Python},
+PeerJ Computer Science \textbf{3} (2017), e103.
+\href{https://doi.org/10.7717/peerj-cs.103}
+{doi:10.7717/peerj-cs.103}.
+
+\bibitem{Johansson2017}
+F.~Johansson,
+\emph{Arb: efficient arbitrary-precision midpoint-radius interval
+arithmetic},
+IEEE Transactions on Computers \textbf{66} (2017), no.~8, 1281--1292.
+\href{https://doi.org/10.1109/TC.2017.2690633}
+{doi:10.1109/TC.2017.2690633}.
+
+\end{thebibliography}
+
+\end{document}

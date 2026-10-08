@@ -1,0 +1,4 @@
+PASS: FLINT/Arb independently confirms the decisive root claims
+H roots in (0,25)/(25,49): 41/22
+each of the 63 VAS intervals contains one independently isolated root
+K and every circle factor have no root in (-1,1)

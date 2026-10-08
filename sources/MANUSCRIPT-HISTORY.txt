@@ -1,0 +1,16 @@
+Improved irrationality-exponent bounds for log 3 and log₂ 3
+
+Author: Rohit Kumar Jha
+Manuscript submitted privately to the Journal of Number Theory: 2026-08-09.
+Public copy: the author/contact block is reduced to the author's name.
+No affiliation or ORCID is included. The approximate-weight table's index
+and weight columns are separated by spacing instead of equality signs.
+All mathematical statements, parameters, and proof arguments are unchanged.
+The original submitted directory remains unchanged and is not published here.
+The exact supplement is byte-identical to the frozen submitted supplement.
+The journal-submission date is not a public-posting or acceptance date.
+
+SHA-256 of the submitted manuscript source before author-block removal:
+f298dac87f7048afb5058bf3d2c0f8e3e1d2ab7feb87ddc0376c75961e5d6b54
+SHA-256 of the original frozen supplementary ZIP:
+c0df04d74e0308b4e1145308264e88f302dd1c49fca61e6693115b4203a78b56

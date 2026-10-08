@@ -1,0 +1,33 @@
+# Lean toolchains, dependencies, and generated objects
+.lake/
+*.olean
+*.ilean
+*.c
+*.o
+*.a
+*.so
+*.dylib
+
+# TeX build outputs; main.bbl is intentionally tracked where supplied.
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.blg
+/sources/main.pdf
+
+# Local environment and editor files
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+.vscode/
+.idea/
+
+/sources/manuscript.pdf
+reproduced_certificate.json

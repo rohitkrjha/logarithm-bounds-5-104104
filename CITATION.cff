@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying paper when using these results."
+type: software
+title: "Improved irrationality-exponent bounds for log 3 and log₂ 3 — manuscript and Lean sources"
+authors:
+  - family-names: Jha
+    given-names: Rohit Kumar
+version: v1
+repository-code: "https://github.com/rohitkrjha/logarithm-bounds-5-104104"
+url: "https://github.com/rohitkrjha/logarithm-bounds-5-104104"
+license-url: "https://github.com/rohitkrjha/logarithm-bounds-5-104104/blob/main/LICENSE"
+preferred-citation:
+  type: unpublished
+  status: submitted
+  title: "Improved irrationality-exponent bounds for log 3 and log₂ 3"
+  authors:
+    - family-names: Jha
+      given-names: Rohit Kumar
+  year: 2026
+  version: v1
+  url: "https://github.com/rohitkrjha/logarithm-bounds-5-104104/releases/tag/v1"
+  notes: "Manuscript submitted privately to the Journal of Number Theory on 9 August 2026. Public author block updated; mathematics unchanged."

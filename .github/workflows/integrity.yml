@@ -1,0 +1,23 @@
+name: Publication integrity
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  integrity:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out the exact revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Check release hashes and source identity
+        run: python3 scripts/check_integrity.py
+      - name: Check manuscript constants against the exact certificate
+        run: python3 sources/supplement/verify_manuscript_constants.py

@@ -1,0 +1,21 @@
+LICENSING SCOPE
+===============
+
+Original contributions: copyright 2026 Rohit Kumar Jha.
+
+The manuscript PDF, LaTeX/bibliography sources, exact certificate data,
+reference outputs, provenance records, and accompanying documentation are
+licensed under Creative Commons Attribution 4.0 International (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+The author's original Python verification/audit programs and build
+configuration are licensed under the Apache License, Version 2.0.
+A copy is included at LICENSES/Apache-2.0.txt in the source archive.
+
+Third-party software is not relicensed. SymPy, python-flint/FLINT/Arb, Python,
+TeX, elsarticle, and their dependencies retain their respective licenses;
+they are not bundled into this archive.
+
+These licenses apply to different components, not as interchangeable
+alternatives for every file.

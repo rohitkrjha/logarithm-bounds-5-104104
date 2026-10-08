@@ -1,0 +1,21 @@
+PASS: exact finite certificate verified
+active factors = 21
+weight common denominator digits = 1061
+clearing exponent alpha = 0.43339168265643340846553249867665
+real critical polynomial: degree 85 with 63 roots in [0,49]
+critical roots in [0,25] / [25,49] = 41 / 22
+M1 in [ -2.722957495668415052959633498 , -2.722957495668409711051756908 ]
+M2 in [ -2.722977562389619550059088920 , -2.722977562389619502813003710 ]
+M1-M2 > 0.0000200667212044498533702125
+circle derivative numerator: degree 170
+J=(901*c+899)*K and all 170 Bernstein coefficients of K are negative
+circle maximum c0 = -899/901, z0 = 26*(-899+60*i)/901
+L in [ 4.537901075598406403746477103 , 4.537901075598406404986680610 ]
+C in [ 1.300404222911437365598758524 , 1.300404222911437366032150207 ]
+lambda < 5.838305298509843771018830817
+tau_1 > 1.422553272756972345019606701
+lambda/tau_1 < 4.10410310131651169701364297937
+1 + lambda/tau_1 < 5.10410310131651169701364297937
+certified homogeneous target = 4.104104
+certified irrationality-exponent target = 5.104104
+Therefore, with the manuscript's analytic lemmas, both stated claims follow
