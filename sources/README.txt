@@ -10,7 +10,9 @@ on 9 August 2026. In this public copy, the author block contains only the
 author's name: the affiliation, address, and institutional correspondence
 details have been removed. No ORCID is supplied. The approximate-weight
 table uses spacing rather than equality signs between its index and weight
-columns. The mathematics and exact computational supplement are unchanged.
+columns. The elementary Laplace lemma explicitly requires a nondegenerate
+interval, as satisfied by both intervals used in the proof. The main results,
+proof construction, and exact computational supplement are unchanged.
 The submission date is
 distinct from the date of public posting.
 

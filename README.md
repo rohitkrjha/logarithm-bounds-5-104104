@@ -21,9 +21,11 @@ $$
 \mu\!\left(\frac{\log 3}{\log 2}\right)\leq 5.104104.
 $$
 
-This repository preserves the mathematics of the August 2026 manuscript and
-its exact certificate. The public copy uses a name-only author block, without
+This repository preserves the main results and exact certificate of the
+August 2026 manuscript. The public copy uses a name-only author block, without
 affiliation, institutional contact details, or ORCID.
+The elementary Laplace lemma explicitly requires a nondegenerate interval;
+both intervals used in the proof already satisfy this condition.
 The submission date records the manuscript's history; it is not a backdated
 Git commit or public-release timestamp.
 
@@ -71,13 +73,13 @@ not a fresh run of all computational audits.
 The release directory contains the five files for the corresponding Zenodo
 preprint deposit. The sources directory contains the exact unpacked source
 archive. The submitted supplement and proof constants are preserved. The
-public edits remove the author-contact block and replace equality-sign
-separators in the approximate-weight table with spacing. Private journal-portal records,
+public edits remove the author-contact block, replace equality-sign
+separators in the approximate-weight table with spacing, and make the
+Laplace lemma's nondegenerate-interval hypothesis explicit. Private journal-portal records,
 cover letters, and the old author-contact block are excluded.
 
 Use [CITATION.cff](CITATION.cff) or GitHub's **Cite this repository** control.
-The Zenodo DOI will be added when available. No acceptance, journal DOI,
-volume, issue, or journal publication date is claimed.
+The Zenodo DOI will be added when available.
 
 ## Rights
 

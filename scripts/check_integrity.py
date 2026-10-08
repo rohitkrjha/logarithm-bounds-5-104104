@@ -69,7 +69,7 @@ def main():
             sources["LICENSES/Apache-2.0.txt"], "Apache license copy changed")
     print(f"PASS: {slug}: {len(files)} release files; "
           f"{len(sources)} source members; complete hashes and exact source identity.")
-    print("This is an integrity check, not a Lean build or theorem verification.")
+    print("This is an integrity check, not a run of the exact audits or a verification of the analytic proof.")
 
 
 if __name__ == "__main__":
