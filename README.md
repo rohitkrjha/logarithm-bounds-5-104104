@@ -1,6 +1,10 @@
 # Improved irrationality-exponent bounds for log 3 and log₂ 3
 
-Rohit Kumar Jha · Manuscript submitted to the Journal of Number Theory on **9 August 2026**
+Rohit Kumar Jha
+
+Initially submitted to the Journal of Number Theory on **9 August 2026**.
+Following redirection, the manuscript was submitted to **Finite Fields and
+Their Applications (FFA)**, where it is currently **pending review**.
 
 [Read the paper](release/logarithm-bounds-5-104104-v1.pdf) · [LaTeX source](sources/manuscript.tex) · [Exact verification package](sources/supplement) · [Citation](CITATION.cff)
 
