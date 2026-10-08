@@ -18,5 +18,7 @@ preferred-citation:
       given-names: Rohit Kumar
   year: 2026
   version: v1
-  url: "https://github.com/rohitkrjha/logarithm-bounds-5-104104/releases/tag/v1"
+  url: "https://zenodo.org/records/23241502"
+  doi: "10.5281/zenodo.23241502"
+  date-published: "2026-10-08"
   notes: "Initially submitted privately to the Journal of Number Theory on 9 August 2026. Following redirection, submitted to Finite Fields and Their Applications (FFA), where it is currently pending review. Public author block and table formatting updated; nondegenerate-interval hypothesis made explicit. Main results and exact certificate unchanged."

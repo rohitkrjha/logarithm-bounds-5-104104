@@ -2,6 +2,8 @@
 
 Rohit Kumar Jha
 
+[Zenodo record](https://zenodo.org/records/23241502) · [DOI: 10.5281/zenodo.23241502](https://doi.org/10.5281/zenodo.23241502)
+
 Initially submitted to the Journal of Number Theory on **9 August 2026**.
 Following redirection, the manuscript was submitted to **Finite Fields and
 Their Applications (FFA)**, where it is currently **pending review**.
@@ -83,7 +85,7 @@ Laplace lemma's nondegenerate-interval hypothesis explicit. Private journal-port
 cover letters, and the old author-contact block are excluded.
 
 Use [CITATION.cff](CITATION.cff) or GitHub's **Cite this repository** control.
-The Zenodo DOI will be added when available.
+The matching preprint is archived on [Zenodo](https://zenodo.org/records/23241502) with version-specific DOI [10.5281/zenodo.23241502](https://doi.org/10.5281/zenodo.23241502).
 
 ## Rights
 
